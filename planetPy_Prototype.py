@@ -1,6 +1,7 @@
 import pygame
 import random
 
+#region ---Inits---
 # initalize pygame
 pygame.init()
 
@@ -15,9 +16,10 @@ pygame.display.set_caption("GAME TITLE")
 RED = (200, 0, 0) # color for the quit button
 WHITE = (255, 255, 255) # color for text and stars
 
-# Design the Quit Button
+#endregion ---inits---
 
-# --- Quit Button Properties ---
+#region Design the Quit Button
+
 # Define button dimensions
 button_width = 80
 button_height = 30
@@ -25,6 +27,8 @@ button_height = 30
 button_x = SCREEN_WIDTH - button_width - 10 # 10 pixels from the right edge
 button_y = 10 # 10 pixels from the top edge
 quit_button_rect = pygame.Rect(button_x, button_y, button_width, button_height)
+#endregion design quit button
+
 
 # game loop to keep the window displayed and functional until the game is quit
 gameRunning = True
@@ -32,9 +36,9 @@ while gameRunning:
 
 	# Event Handling
 	for event in pygame.event.get():
-		if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # If a mouse button is pressed
+		if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # If left mouse button is pressed
 			gameRunning = False
-			
+            
 	# Draw the menu
 	# Draw the quit button
 	pygame.draw.rect(screen, RED, quit_button_rect) 
@@ -47,6 +51,4 @@ while gameRunning:
 	# Refresh screen to display elements each loop
 	pygame.display.flip()
 	
-	# Runs quit now that the game loop has exited
-	# move to UI menu function
 

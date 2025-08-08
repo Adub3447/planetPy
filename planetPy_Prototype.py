@@ -19,13 +19,18 @@ pressedButtonRED = (80, 20, 20)
 unpressedButtonBLUE = (0, 150, 200)
 pressedButtonBLUE = (0, 125, 150)
 
-##Themes
-metalColor = (150, 80, 200)         # color for metal theme
-foodColor = (125, 200, 75)          # color for food theme
-goodsColor = (250, 150, 50)         # color for goods theme
 
 ##Misc
-WHITE = (255, 255, 255) # color for text and 
+WHITE = (255, 255, 255) # generic color
+BLACK = (0,0,0)         #generic color
+
+##Themes
+metalColor = (150, 80, 200)         # color for metal theme
+foodColor = (100, 150, 45)          # color for food theme
+goodsColor = (200, 100, 20)         # color for goods theme
+
+button_text_color = WHITE
+legend_text_color = BLACK
 
 # init UI default values
 uiOffset = 10
@@ -37,6 +42,7 @@ generateButtonColor = unpressedButtonBLUE
 #region Design UI elements
 
 #region Design Buttons
+font_button = pygame.font.SysFont('Arial', 18, bold=False)
 
 ##Quit Button 
 # Dimensions
@@ -57,6 +63,20 @@ button_y = rectButton_Height*2 + uiOffset # 10 pixels from the top edge
 generate_button_rect = pygame.Rect(button_x, button_y, rectButton_Width, rectButton_Height)
 
 #endregion design quit button
+
+#region General UI
+##Legend Window
+font_legend = pygame.font.SysFont('Arial', 12, bold=False)
+# Dimensions
+legButton_Width = 40
+legButton_Height = 15  
+# Top Left Corner
+legend_x = legButton_Width - uiOffset
+legend_y = uiOffset 
+legend_icon1_rect = pygame.Rect(legend_x, legend_y, legButton_Width, legButton_Height)
+legend_icon2_rect = pygame.Rect(legend_x, legend_y+ legButton_Height+uiOffset, legButton_Width, legButton_Height)
+legend_icon3_rect = pygame.Rect(legend_x, legend_y+ 2*legButton_Height+2*uiOffset, legButton_Width, legButton_Height)
+#endregion general UI
 
 #region Design planets
 planetRadius = 25
@@ -128,17 +148,36 @@ while gameRunning:
     ##Draw Quit Botton
     pygame.draw.rect(screen, quitButtonColor, quit_button_rect) 
     font = pygame.font.Font(None, 24) # Choose a font and size
-    text = font.render("Quit", True, WHITE) # Render the text "Quit" in white
+    text = font_button.render("Quit", True, button_text_color) # Render the text "Quit" in white
     text_rect = text.get_rect(center=quit_button_rect.center) # Center text on button
     screen.blit(text, text_rect) # Draw the text
 
     ##Draw Generate Button
     pygame.draw.rect(screen, generateButtonColor, generate_button_rect) 
-    font = pygame.font.Font(None, 24) # Choose a font and size
-    text = font.render("Generate", True, WHITE) # Render the text "Quit" in white
+    text = font_button.render("Generate", True, button_text_color) # Render the text "Quit" in white
     text_rect = text.get_rect(center=generate_button_rect.center) # Center text on button
     screen.blit(text, text_rect) # Draw the text
 
+    ##Draw Legend
+    ###Metal
+    pygame.draw.rect(screen, metalColor, legend_icon1_rect) 
+    text = font_legend.render("Metal", True, legend_text_color) # Render the text in white
+    text_rect = text.get_rect(center=legend_icon1_rect.center) # Center text on rect
+    screen.blit(text, text_rect) # Draw the text
+    
+    ###Goods
+    pygame.draw.rect(screen, goodsColor, legend_icon2_rect) 
+    text = font_legend.render("Goods", True, legend_text_color) # Render the text in white
+    text_rect = text.get_rect(center=legend_icon2_rect.center) # Center text on rect
+    screen.blit(text, text_rect) # Draw the text
+
+    ###Food
+    pygame.draw.rect(screen, foodColor, legend_icon3_rect) 
+    text = font_legend.render("Food", True, legend_text_color) # Render the text in white
+    text_rect = text.get_rect(center=legend_icon3_rect.center) # Center text on rect
+    screen.blit(text, text_rect) # Draw the text
+
+    ##Draw Planets
     for planet in planets:
         planet.draw(screen)
 

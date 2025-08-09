@@ -24,7 +24,7 @@ uiOffset = 5
 orbitOffset = 5
 ui_scale_factor = 0.2
 planet_scale_factor = 0.2
-station_scale_factor = 0.2
+station_scale_factor = 0.05
 # endregion ---UI Variables---
 
 # region ---Design UI Elements---

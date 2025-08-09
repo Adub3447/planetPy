@@ -20,11 +20,18 @@ WHITE = (255, 255, 255)
 BLACK = (0,0,0)
 
 ## Standardized Constants
-uiOffset = 5
-orbitOffset = 5
-ui_scale_factor = 0.2
-planet_scale_factor = 0.2
-station_scale_factor = 0.05
+uiOffset = .02
+orbitOffset = .02
+ui_scale_factor = .2
+planet_scale_factor = .2
+station_scale_factor = .2
+
+#% versions
+#uiOffset = SCREEN_HEIGHT*.3
+#orbitOffset = SCREEN_HEIGHT*.1
+#ui_scale_factor = SCREEN_HEIGHT*.3
+#planet_scale_factor = SCREEN_HEIGHT*.3
+#station_scale_factor = SCREEN_HEIGHT*.3
 # endregion ---UI Variables---
 
 # region ---Design UI Elements---

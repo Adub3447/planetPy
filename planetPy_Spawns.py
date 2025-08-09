@@ -66,4 +66,38 @@ def spawnStation(planet_x, planet_y, assets):
     return spawned_Stations
 
 stations = []
-# endregion design stations
+# endregion design 
+
+'''
+# region ---Design Ships---
+class Ship:
+    def __init__(self, position, image):
+        self.position = position
+        self.image = image
+        self.rect = self.image.get_rect(center=position)
+        
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
+        
+def spawnShip(station_x, station_y, assets):
+    """Spawns a ship with random position."""
+    spawned_Ships = []
+    ship_types = ["unknown", "hydroponic", "cargo", "pirate"]
+    ship_assets = [assets["ship_unknown"], assets["ship_hydroponic"], assets["ship_cargo"], assets["ship_pirate"]]
+    ship_Version = ship_types[0]
+    case ship_Version = ship_types[0]:
+       ship_assets
+    case
+        station_image = station_types[1]
+        
+        # spawn with center of rect orbitoffset from planetxy
+        rand_x = random.randint(station_image.get_width(), planet_x - station_image.get_width() - uiOffset)
+        rand_y = random.randint(station_image.get_height(), planet_y - station_image.get_height() - uiOffset)
+        position = (rand_x, rand_y)
+        spawned_Stations.append(Planet(position, station_image))
+
+    return spawned_Stations
+
+ships = []
+# endregion design ships
+'''

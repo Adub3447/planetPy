@@ -71,7 +71,8 @@ while gameRunning:
             print("How many planets?")
             num_Planets = int(input())
             planets = spawnPlanets(num_Planets, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
-            #debug
+
+            '''#debug'''
             planet_x = 400
             planet_y = 400
             stations = spawnStation(planet_x, planet_y, assets)
@@ -90,6 +91,8 @@ while gameRunning:
 
     for station in stations:    #Draw Stations
             station.draw(screen)
+
+    print(planets)
     # endregion ---Draw Elements---
     
     pygame.display.flip()

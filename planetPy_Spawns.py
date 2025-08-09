@@ -58,8 +58,8 @@ def spawnStation(planet_x, planet_y, assets):
         station_image = station_types[1]
         
         # spawn with center of rect orbitoffset from planetxy
-        rand_x = random.randint(station_image.get_width(), screen_width - station_image.get_width() - uiOffset)
-        rand_y = random.randint(station_image.get_height(), screen_height - station_image.get_height() - uiOffset)
+        rand_x = random.randint(station_image.get_width(), planet_x - station_image.get_width() - uiOffset)
+        rand_y = random.randint(station_image.get_height(), planet_y - station_image.get_height() - uiOffset)
         position = (rand_x, rand_y)
         spawned_Stations.append(Planet(position, station_image))
 

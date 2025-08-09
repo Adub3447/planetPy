@@ -71,6 +71,10 @@ while gameRunning:
             print("How many planets?")
             num_Planets = int(input())
             planets = spawnPlanets(num_Planets, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
+            #debug
+            planet_x = 400
+            planet_y = 400
+            stations = spawnStation(planet_x, planet_y, assets)
         else:
             generate_button_pressed = False
         # endregion ---UIButtons---
@@ -81,8 +85,11 @@ while gameRunning:
     # region ---Draw Elements---
     draw_ui(screen, ui_elements, assets, quit_button_pressed, generate_button_pressed)
     
-    for planet in planets: # Draw Planets
+    for planet in planets:      #Draw Planets
         planet.draw(screen)
+
+    for station in stations:    #Draw Stations
+            station.draw(screen)
     # endregion ---Draw Elements---
     
     pygame.display.flip()

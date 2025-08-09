@@ -8,13 +8,14 @@ from planetPy_Spawns import *
 
 # region ---Inits---
 pygame.init()   # initalize pygame
-assets = load_assets()  # Load all game assets once at the start
 quit_button_pressed = False # default button states
 generate_button_pressed = False
 # endregion ---inits---
 
-#region ---UI Elements---
-## Define UI elements - must happen after load_assets
+#region ---Load Assets---
+assets = load_assets()  # Load all game assets once at the start, must happen before img can be assigned
+
+###optimize this section
 quit_unpressed_img = assets["quit_unpressed"]
 regenerate_unpressed_img = assets["regenerate_unpressed"]
 legend_img = assets["metal_legend"]

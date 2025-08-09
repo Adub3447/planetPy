@@ -68,7 +68,9 @@ while gameRunning:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and ui_elements["generate_button_rect"].collidepoint(event.pos):
             generate_button_pressed = True
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1 and ui_elements["generate_button_rect"].collidepoint(event.pos):
-            planets = spawnPlanets(num_Planets=5, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
+            print("How many planets?")
+            num_Planets = int(input())
+            planets = spawnPlanets(num_Planets, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
         else:
             generate_button_pressed = False
         # endregion ---UIButtons---

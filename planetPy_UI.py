@@ -24,6 +24,7 @@ uiOffset = 5
 orbitOffset = 5
 ui_scale_factor = 0.2
 planet_scale_factor = 0.2
+station_scale_factor = 0.2
 # endregion ---UI Variables---
 
 # region ---Design UI Elements---
@@ -47,6 +48,10 @@ def load_assets():
         food_planet_img = pygame.image.load(os.path.join(script_dir, "Artwork", "FoodPlanetImage.png")).convert_alpha()
         goods_planet_img = pygame.image.load(os.path.join(script_dir, "Artwork", "GoodsPlanetImage.png")).convert_alpha()
 
+        # Load station images
+        station_built_img = pygame.image.load(os.path.join(script_dir, "Artwork", "StationBuilt.png")).convert_alpha()
+        station_unbuilt_img = pygame.image.load(os.path.join(script_dir, "Artwork", "StationUnbuilt.png")).convert_alpha()
+
         ## Link to hardware settings to fit any screen
         # Scale all UI images by the UI scale factor
         quit_unpressed_img = pygame.transform.scale(quit_unpressed_img, (int(quit_unpressed_img.get_width() * ui_scale_factor), int(quit_unpressed_img.get_height() * ui_scale_factor)))
@@ -61,7 +66,11 @@ def load_assets():
         food_planet_img = pygame.transform.scale(food_planet_img, (int(food_planet_img.get_width() * planet_scale_factor), int(food_planet_img.get_height() * planet_scale_factor)))
         metal_planet_img = pygame.transform.scale(metal_planet_img, (int(metal_planet_img.get_width() * planet_scale_factor), int(metal_planet_img.get_height() * planet_scale_factor)))
         goods_planet_img = pygame.transform.scale(goods_planet_img, (int(goods_planet_img.get_width() * planet_scale_factor), int(goods_planet_img.get_height() * planet_scale_factor)))
-
+        
+        # Scale all station images by the station scale factor
+        station_built_img = pygame.transform.scale(station_built_img, (int(station_built_img.get_width() * station_scale_factor), int(station_built_img.get_height() * station_scale_factor)))
+        station_unbuilt_img = pygame.transform.scale(station_unbuilt_img, (int(station_unbuilt_img.get_width() * station_scale_factor), int(station_unbuilt_img.get_height() * station_scale_factor)))
+        
         return { #delivers images to wherever called
             "quit_unpressed": quit_unpressed_img,
             "quit_pressed": quit_pressed_img,
@@ -72,7 +81,10 @@ def load_assets():
             "goods_legend": goods_legend_img,
             "metal_planet": metal_planet_img,
             "food_planet": food_planet_img,
-            "goods_planet": goods_planet_img
+            "goods_planet": goods_planet_img,
+            "station_built": station_built_img,
+            "station_unbuilt": station_unbuilt_img,
+            
 
         }
     except pygame.error as e:

@@ -9,8 +9,8 @@ from planetPy_UI import *
 pygame.init()
 
 # create screen dimensions
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 900
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("GAME TITLE")
 
@@ -36,7 +36,7 @@ class Planet:
 def spawnPlanets(num_Planets, screen_width, screen_height, assets):
     """Spawns a given number of planets with random positions and images."""
     spawned_Planets = []
-    planet_images = [assets["metal_legend"], assets["food_legend"], assets["goods_legend"]]
+    planet_images = [assets["metal_planet"], assets["food_planet"], assets["goods_planet"]]
     
     for _ in range(num_Planets):
         planet_image = random.choice(planet_images)
@@ -53,6 +53,7 @@ planets = []
 
 # --- Setup UI Elements ---
 # Define the UI element rectangles here after loading the assets
+# The new, smaller image sizes are automatically used here
 quit_unpressed_img = assets["quit_unpressed"]
 regenerate_unpressed_img = assets["regenerate_unpressed"]
 metal_legend_img = assets["metal_legend"]
@@ -70,8 +71,8 @@ generate_button_rect = regenerate_unpressed_img.get_rect(topleft=(button_x, butt
 legend_x = uiOffset
 legend_y = uiOffset 
 legend_icon1_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y))
-legend_icon2_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + metal_legend_img.get_height() + uiOffset))
-legend_icon3_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + 2 * metal_legend_img.get_height() + 2 * uiOffset))
+legend_icon2_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + metal_legend_img.get_height()))
+legend_icon3_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + 2 * metal_legend_img.get_height()))
 
 ui_elements = {
     "quit_button_rect": quit_button_rect,

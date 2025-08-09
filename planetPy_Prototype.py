@@ -9,8 +9,8 @@ from planetPy_UI import *
 pygame.init()
 
 # create screen dimensions
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 900
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 720
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("GAME TITLE")
 

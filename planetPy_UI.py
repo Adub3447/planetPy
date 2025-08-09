@@ -17,11 +17,8 @@ planet_scale_factor = 0.2
 
 # region ---Design UI Elements---
 def load_assets():
-    #"""Loads, scales, and returns all necessary images and fonts."""    #idk what this line is for.
 
     script_dir = os.path.dirname(__file__)     # Get the absolute path of the directory where this script is located
-
-    
     try:    #prep for error if any assets fail to load
         # Load button images
         quit_unpressed_img = pygame.image.load(os.path.join(script_dir, "Artwork", "Quit_Unpressed.png")).convert_alpha()
@@ -53,13 +50,8 @@ def load_assets():
         food_planet_img = pygame.transform.scale(food_planet_img, (int(food_planet_img.get_width() * planet_scale_factor), int(food_planet_img.get_height() * planet_scale_factor)))
         metal_planet_img = pygame.transform.scale(metal_planet_img, (int(metal_planet_img.get_width() * planet_scale_factor), int(metal_planet_img.get_height() * planet_scale_factor)))
         goods_planet_img = pygame.transform.scale(goods_planet_img, (int(goods_planet_img.get_width() * planet_scale_factor), int(goods_planet_img.get_height() * planet_scale_factor)))
-        
 
-        # Define fonts - also scaled down
-        #font_button = pygame.font.SysFont('Arial', 9, bold=False)
-        #font_legend = pygame.font.SysFont('Arial', 6, bold=False)
-
-        return {
+        return { #delivers images to wherever called
             "quit_unpressed": quit_unpressed_img,
             "quit_pressed": quit_pressed_img,
             "regenerate_unpressed": regenerate_unpressed_img,
@@ -70,8 +62,6 @@ def load_assets():
             "metal_planet": metal_planet_img,
             "food_planet": food_planet_img,
             "goods_planet": goods_planet_img
-            #"font_button": font_button,
-            #"font_legend": font_legend,
 
         }
     except pygame.error as e:
@@ -81,10 +71,12 @@ def load_assets():
 
 #region ----Draw UI----
 def draw_ui(screen, ui_elements, assets, quit_pressed, generate_pressed):
-    """Draws all UI elements on the screen."""
     
+    """.blit()
+    The return rectangle is the area of the affected pixels, excluding any pixels outside the destination Surface, or outside the clipping area.
+    """
     # Draw Quit Button
-    if quit_pressed:
+    if quit_pressed: 
         screen.blit(assets["quit_pressed"], ui_elements["quit_button_rect"])
     else:
         screen.blit(assets["quit_unpressed"], ui_elements["quit_button_rect"])

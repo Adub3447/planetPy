@@ -16,15 +16,17 @@ def load_assets():
     """Loads and returns all necessary images and fonts."""
     try:
         # Load button images
-        quit_unpressed_img = pygame.image.load("Artwork/Quit_UnPressed.png").convert_alpha()
-        quit_pressed_img = pygame.image.load("Artwork/Quit_Pressed.png").convert_alpha()
-        regenerate_unpressed_img = pygame.image.load("Artwork/Regenerate_UnPressed.png").convert_alpha()
-        regenerate_pressed_img = pygame.image.load("Artwork/Regenerate_Pressed.png").convert_alpha()
+        quit_unpressed_img = pygame.image.load("Artwork\Quit_Unpressed.png").convert_alpha()
+        quit_pressed_img = pygame.image.load("Artwork\Quit_Pressed.png").convert_alpha()
+        regenerate_unpressed_img = pygame.image.load("Artwork\Regenerate_Unpressed.png").convert_alpha()
+        regenerate_pressed_img = pygame.image.load("Artwork\Regenerate_Pressed.png").convert_alpha()
         
         # Load legend images
-        metal_legend_img = pygame.image.load("Artwork/MetalPlanetsImage.png").convert_alpha()
-        food_legend_img = pygame.image.load("Artwork/FoodPlanetsImage.png").convert_alpha()
-        goods_legend_img = pygame.image.load("Artwork/GoodsPlanetsImage.png").convert_alpha()
+        metal_legend_img = pygame.image.load("Artwork\MetalLegendImage.png").convert_alpha()
+        food_legend_img = pygame.image.load("Artwork\FoodLegendImage.png").convert_alpha()
+        goods_legend_img = pygame.image.load("Artwork\GoodsLegendImage.png").convert_alpha()
+        
+
         
         # Define fonts
         font_button = pygame.font.SysFont('Arial', 18, bold=False)

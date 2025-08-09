@@ -1,24 +1,15 @@
 # main.py
+# runs game loop and handles events
 
 import pygame
 import random
 from planetPy_UI import *
+from planetPy_Spawns import *
 
 # region ---Inits---
-# initalize pygame
-pygame.init()
-
-# create screen dimensions
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 720
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("GAME TITLE")
-
-# Load all game assets once at the start
-assets = load_assets()
-
-# Initialize button state flags
-quit_button_pressed = False
+pygame.init()   # initalize pygame
+assets = load_assets()  # Load all game assets once at the start
+quit_button_pressed = False # default button states
 generate_button_pressed = False
 # endregion ---inits---
 
@@ -51,28 +42,30 @@ def spawnPlanets(num_Planets, screen_width, screen_height, assets):
 planets = []
 # endregion ---Design Planets---
 
-# --- Setup UI Elements ---
-# Define the UI element rectangles here after loading the assets
-# The new, smaller image sizes are automatically used here
+#region ---UI Elements---
+## Define UI elements - must happen after load_assets
 quit_unpressed_img = assets["quit_unpressed"]
 regenerate_unpressed_img = assets["regenerate_unpressed"]
-metal_legend_img = assets["metal_legend"]
+legend_img = assets["metal_legend"]
 
 # Quit Button
-button_x = SCREEN_WIDTH - quit_unpressed_img.get_width() - uiOffset
-button_y = uiOffset 
-quit_button_rect = quit_unpressed_img.get_rect(topleft=(button_x, button_y))
+quit_button_x = SCREEN_WIDTH - quit_unpressed_img.get_width() - uiOffset
+quit_button_y = uiOffset 
+quit_button_rect = quit_unpressed_img.get_rect(topleft=(quit_button_x, quit_button_y))
 
 # Regenerate Button
-button_y = quit_unpressed_img.get_height() + uiOffset * 2
-generate_button_rect = regenerate_unpressed_img.get_rect(topleft=(button_x, button_y))
+generate_button_x = SCREEN_WIDTH - regenerate_unpressed_img.get_width() - uiOffset
+generate_button_y = quit_unpressed_img.get_height() + uiOffset * 2
+generate_button_rect = regenerate_unpressed_img.get_rect(topleft=(generate_button_x, generate_button_y))
 
-# Legend Window
-legend_x = uiOffset
-legend_y = uiOffset 
-legend_icon1_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y))
-legend_icon2_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + metal_legend_img.get_height()))
-legend_icon3_rect = metal_legend_img.get_rect(topleft=(legend_x, legend_y + 2 * metal_legend_img.get_height()))
+# Legend Window         ##make appendable
+home_x = uiOffset
+home_y = uiOffset
+legend_button_height = legend_img.get_height() 
+legend_list = [0, 1, 2]
+legend_list [0] = legend_icon1_rect = legend_img.get_rect(topleft=(home_x, home_y))
+legend_list [1] = legend_icon2_rect = legend_img.get_rect(topleft=(home_x, home_y + legend_button_height + uiOffset))
+legend_list [2] = legend_icon3_rect = legend_img.get_rect(topleft=(home_x, home_y + 2 * (legend_button_height + uiOffset)))
 
 ui_elements = {
     "quit_button_rect": quit_button_rect,
@@ -81,8 +74,9 @@ ui_elements = {
     "legend_icon2_rect": legend_icon2_rect,
     "legend_icon3_rect": legend_icon3_rect,
 }
+#endregion ui elements
 
-# game loop
+#region ---Game Loop---
 gameRunning = True
 while gameRunning:
     # region ---Event Handling---
@@ -118,3 +112,5 @@ while gameRunning:
     # endregion ---Draw Elements---
     
     pygame.display.flip()
+
+    #endregion game loop

@@ -1,7 +1,18 @@
 # planetPy_UI.py
+# creates all visual elements
 
 import pygame
 import os
+
+#region ---Primary Settings---
+
+# create screen dimensions
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 720
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("GAME TITLE")
+
+#endregion primary settings
 
 # region ---UI Variables---
 ## Generic Colors

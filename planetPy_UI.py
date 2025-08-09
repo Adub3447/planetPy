@@ -1,4 +1,4 @@
-# ui.py
+# planetPy_UI.py
 
 import pygame
 

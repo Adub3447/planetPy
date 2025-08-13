@@ -76,6 +76,10 @@ while gameRunning:
             planet_x = 400
             planet_y = 400
             stations = spawnStation(planet_x, planet_y, assets)
+
+            station_x = 1000
+            station_y = 1000
+            ships = spawnShip(station_x, station_y, assets)
         else:
             generate_button_pressed = False
         # endregion ---UIButtons---

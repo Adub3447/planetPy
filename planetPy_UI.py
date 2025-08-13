@@ -25,6 +25,7 @@ orbitOffset = .02
 ui_scale_factor = .2
 planet_scale_factor = .15
 station_scale_factor = .05
+ship_scale_factor = 1
 
 #% versions
 #uiOffset = SCREEN_HEIGHT*.3
@@ -85,6 +86,14 @@ def load_assets():
         station_built_img = pygame.transform.scale(station_built_img, (int(station_built_img.get_width() * station_scale_factor), int(station_built_img.get_height() * station_scale_factor)))
         station_unbuilt_img = pygame.transform.scale(station_unbuilt_img, (int(station_unbuilt_img.get_width() * station_scale_factor), int(station_unbuilt_img.get_height() * station_scale_factor)))
         
+        # Scale ship images by ship scale factor
+        metal_ship_img = pygame.transform.scale(metal_ship_img, (int(metal_ship_img.get_width() * ship_scale_factor), int(metal_ship_img.get_height() * ship_scale_factor)))
+        food_ship_img = pygame.transform.scale(food_ship_img, (int(food_ship_img.get_width() * ship_scale_factor), int(food_ship_img.get_height() * ship_scale_factor)))
+        goods_ship_img = pygame.transform.scale(goods_ship_img, (int(goods_ship_img.get_width() * ship_scale_factor), int(goods_ship_img.get_height() * ship_scale_factor)))
+        cop_ship_img = pygame.transform.scale(food_ship_img, (int(food_ship_img.get_width() * ship_scale_factor), int(food_ship_img.get_height() * ship_scale_factor)))
+        pirate_ship_img = pygame.transform.scale(food_ship_img, (int(food_ship_img.get_width() * ship_scale_factor), int(food_ship_img.get_height() * ship_scale_factor)))
+        
+
         return { #delivers images to wherever called
             "quit_unpressed": quit_unpressed_img,
             "quit_pressed": quit_pressed_img,
@@ -98,8 +107,11 @@ def load_assets():
             "goods_planet": goods_planet_img,
             "station_built": station_built_img,
             "station_unbuilt": station_unbuilt_img,
-            
-
+            "ship_metal": metal_ship_img,
+            "ship_food": food_ship_img,
+            "ship_goods": goods_ship_img,
+            "ship_cop": cop_ship_img,
+            "ship_pirate": pirate_ship_img
         }
     except pygame.error as e:
         print(f"Error loading images: {e}")

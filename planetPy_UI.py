@@ -23,8 +23,8 @@ BLACK = (0,0,0)
 uiOffset = .02
 orbitOffset = .02
 ui_scale_factor = .2
-planet_scale_factor = .2
-station_scale_factor = .2
+planet_scale_factor = .15
+station_scale_factor = .05
 
 #% versions
 #uiOffset = SCREEN_HEIGHT*.3
@@ -38,7 +38,7 @@ station_scale_factor = .2
 def load_assets():
 
     script_dir = os.path.dirname(__file__)     # Get the absolute path of the directory where this script is located
-    try:    #prep for error if any assets fail to load
+    try:    # load and scale assets
         # Load button images
         quit_unpressed_img = pygame.image.load(os.path.join(script_dir, "Artwork", "Quit_Unpressed.png")).convert_alpha()
         quit_pressed_img = pygame.image.load(os.path.join(script_dir, "Artwork", "Quit_Pressed.png")).convert_alpha()
@@ -58,6 +58,13 @@ def load_assets():
         # Load station images
         station_built_img = pygame.image.load(os.path.join(script_dir, "Artwork", "StationBuilt.png")).convert_alpha()
         station_unbuilt_img = pygame.image.load(os.path.join(script_dir, "Artwork", "StationUnbuilt.png")).convert_alpha()
+
+        # Load ship images
+        metal_ship_img = pygame.image.load(os.path.join(script_dir, "Artwork", "MetalShipImage.png")).convert_alpha()
+        food_ship_img = pygame.image.load(os.path.join(script_dir, "Artwork", "FoodShipImage.png")).convert_alpha()
+        goods_ship_img = pygame.image.load(os.path.join(script_dir, "Artwork", "GoodsShipImage.png")).convert_alpha()
+        cop_ship_img = pygame.image.load(os.path.join(script_dir, "Artwork", "CopShipImage.png")).convert_alpha()
+        pirate_ship_img = pygame.image.load(os.path.join(script_dir, "Artwork", "PirateShipImage.png")).convert_alpha()
 
         ## Link to hardware settings to fit any screen
         # Scale all UI images by the UI scale factor

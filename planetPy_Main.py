@@ -68,8 +68,8 @@ while gameRunning:
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1 and ui_elements["generate_button_rect"].collidepoint(event.pos):
             generate_button_pressed = True
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1 and ui_elements["generate_button_rect"].collidepoint(event.pos):
-            print("How many planets?")
-            num_Planets = int(input())
+            #print("How many planets?")
+            num_Planets = 8 #int(input())
             planets = spawnPlanets(num_Planets, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
 
             '''#debug'''
@@ -92,7 +92,6 @@ while gameRunning:
     for station in stations:    #Draw Stations
             station.draw(screen)
 
-    print(planets)
     # endregion ---Draw Elements---
     
     pygame.display.flip()

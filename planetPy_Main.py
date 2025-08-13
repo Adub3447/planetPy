@@ -10,6 +10,7 @@ from planetPy_Spawns import *
 pygame.init()   # initalize pygame
 quit_button_pressed = False # default button states
 generate_button_pressed = False
+ship_iteration = 0
 # endregion ---inits---
 
 #region ---Load Assets---
@@ -73,13 +74,17 @@ while gameRunning:
             planets = spawnPlanets(num_Planets, screen_height=SCREEN_HEIGHT, screen_width=SCREEN_WIDTH, assets=assets)
 
             '''#debug'''
+            # test station spawning
             planet_x = 400
             planet_y = 400
             stations = spawnStation(planet_x, planet_y, assets)
 
-            station_x = 1000
-            station_y = 1000
+            # test ship spawning
+            station_x = 400
+            station_y = 400
+            print("@@@@@@@@@@@@@@@@@@@")
             ships = spawnShip(station_x, station_y, assets)
+
         else:
             generate_button_pressed = False
         # endregion ---UIButtons---
@@ -95,6 +100,21 @@ while gameRunning:
 
     for station in stations:    #Draw Stations
             station.draw(screen)
+
+    for ship in ships:
+            ship.draw(screen)
+
+            # test movement
+            ships = spawnShip(station_x, station_y, assets)
+
+            shipSpeed = .1
+            if station_y <10:
+                station_y = 10
+            else:
+                station_y = station_y-shipSpeed
+                  
+            print("------ship position")
+            print(station_y)
 
     # endregion ---Draw Elements---
     

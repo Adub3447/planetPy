@@ -25,7 +25,7 @@ orbitOffset = .02
 ui_scale_factor = .2
 planet_scale_factor = .15
 station_scale_factor = .05
-ship_scale_factor = 1
+ship_scale_factor = .1
 
 #% versions
 #uiOffset = SCREEN_HEIGHT*.3

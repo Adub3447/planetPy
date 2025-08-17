@@ -16,7 +16,7 @@ ship_iteration = 0
 #region ---Load Assets---
 assets = load_assets()  # Load all game assets once at the start, must happen before img can be assigned
 
-###optimize this section
+# Load basic UI
 quit_unpressed_img = assets["quit_unpressed"]
 regenerate_unpressed_img = assets["regenerate_unpressed"]
 legend_img = assets["metal_legend"]

@@ -1,0 +1,21 @@
+Main
+	---Inits
+	- initialize variable default states
+
+	---Load Assets
+	- assets = load_assets (loads all assets at once)
+		---Load Basic UI	(loads images for the default UI)
+		- img = assets["name of asset from UI script"]
+		---Buttons
+		- creates coordinates and draws a virtual zone for reference
+
+
+
+Game Loop
+- 
+
+
+-----UI-----
+
+
+-----Spawns-----
